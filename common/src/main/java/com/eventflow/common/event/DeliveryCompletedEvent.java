@@ -2,14 +2,12 @@ package com.eventflow.common.event;
 
 import lombok.*;
 
-import java.util.List;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderCreatedEvent {
+public class DeliveryCompletedEvent {
     private EventHeader header;
     private Payload payload;
 
@@ -20,19 +18,9 @@ public class OrderCreatedEvent {
     @Builder
     public static class Payload {
         private String orderId;
+        private String deliverId;
         private String userId;
-        private Integer totalPrice;
-        private List<OrderItem> items;
-    }
-
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Builder
-    public static class OrderItem {
-        private String productId;
-        private Integer quantity;
-        private Integer price;
+        private String deliveryStatus;
+        private String deliveredAt;
     }
 }

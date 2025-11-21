@@ -9,7 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderCreatedEvent {
+public class InventoryUpdatedEvent {
     private EventHeader header;
     private Payload payload;
 
@@ -20,9 +20,7 @@ public class OrderCreatedEvent {
     @Builder
     public static class Payload {
         private String orderId;
-        private String userId;
-        private Integer totalPrice;
-        private List<OrderItem> items;
+        private List<ProductStock> updatedProducts;
     }
 
     @Getter
@@ -30,9 +28,9 @@ public class OrderCreatedEvent {
     @NoArgsConstructor
     @AllArgsConstructor
     @Builder
-    public static class OrderItem {
-        private String productId;
-        private Integer quantity;
-        private Integer price;
+    public static class ProductStock {
+        private String ProductId;
+        private Integer quantityChanged; // ex : -2
+        private Integer stockAfter;      // ex : 18
     }
 }

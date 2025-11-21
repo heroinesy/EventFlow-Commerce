@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PaymentCompletedEvent {
+public class SettlementCompletedEvent {
     private EventHeader header;
     private Payload payload;
 
@@ -17,11 +17,9 @@ public class PaymentCompletedEvent {
     @AllArgsConstructor
     @Builder
     public static class Payload {
-        private String paymentId;
+        private String settlementId;
         private String orderId;
-        private String userId;
         private String status;
-        private Integer paidAmount;
-        private String paymentMethod;
+        private String completedAt;
     }
 }
