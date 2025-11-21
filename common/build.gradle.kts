@@ -1,5 +1,4 @@
 plugins {
-    id("org.springframework.boot") version "3.2.4"
     id("io.spring.dependency-management")
     java
 }
@@ -9,15 +8,15 @@ java {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-
-    runtimeOnly("com.h2database:h2")
-
+    // Lombok (공통 DTO에 사용)
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    // Jackson (이벤트 직렬화/역직렬화)
+    implementation("com.fasterxml.jackson.core:jackson-databind")
+
+    // Kafka event 기반을 위해 필요 (하지만 Boot는 각 서비스에서 적용)
+    implementation("org.springframework.kafka:spring-kafka")
 }
 
 tasks.test {
