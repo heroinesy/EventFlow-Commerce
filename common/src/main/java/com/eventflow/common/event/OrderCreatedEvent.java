@@ -35,4 +35,24 @@ public class OrderCreatedEvent {
         private Integer quantity;
         private Integer price;
     }
+
+    public static OrderCreatedEvent of(
+            EventHeader header ,
+            String orderId,
+            String userId,
+            Integer totalPrice,
+            List<OrderItem> items
+    ) {
+        Payload payload = Payload.builder()
+                .orderId(orderId)
+                .userId(userId)
+                .totalPrice(totalPrice)
+                .items(items)
+                .build();
+
+        return OrderCreatedEvent.builder()
+                .header(header)
+                .payload(payload)
+                .build();
+    }
 }
