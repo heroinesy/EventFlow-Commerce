@@ -8,14 +8,17 @@ java {
 }
 
 dependencies {
-    // Lombok (공통 DTO에 사용)
+    // Lombok
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
 
-    // Jackson (이벤트 직렬화/역직렬화)
+    // Jackson
     implementation("com.fasterxml.jackson.core:jackson-databind")
 
-    // Kafka event 기반을 위해 필요 (하지만 Boot는 각 서비스에서 적용)
+    // Spring Core (Configuration / Bean 사용)
+    implementation("org.springframework:spring-context")
+
+    // Kafka
     implementation("org.springframework.kafka:spring-kafka")
 }
 
