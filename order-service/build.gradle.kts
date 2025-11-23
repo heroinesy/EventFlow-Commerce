@@ -12,6 +12,12 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
+    // Kafka Producer 사용을 위함
+    implementation("org.springframework.kafka:spring-kafka")
+
+    // common 모듈 (DTO + KafkaConfig)
+    implementation(project(":common"))
+
     runtimeOnly("com.h2database:h2")
 
     compileOnly("org.projectlombok:lombok")

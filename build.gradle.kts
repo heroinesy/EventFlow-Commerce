@@ -1,6 +1,4 @@
 plugins {
-    // 루트에서는 Spring Boot 플러그인을 apply하지 않는다
-    // 각 모듈에서 직접 적용한다.
     id("io.spring.dependency-management") version "1.1.4"
     java
 }
@@ -22,6 +20,12 @@ subprojects {
 
     apply(plugin = "java")
     apply(plugin = "io.spring.dependency-management")
+
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.boot:spring-boot-dependencies:3.2.3")
+        }
+    }
 
     dependencies {
         testImplementation("org.springframework.boot:spring-boot-starter-test")
